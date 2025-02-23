@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {},
+        },
+        plugins: [
+          function ({ addBase, theme }) {
+            addBase({
+              'input, select': {
+                border: '1px solid #e2e8f0',
+                borderRadius: '0.375rem',
+                padding: '0.5rem 0.75rem',
+                width: '100%',
+              },
+              'input:focus, select:focus': {
+                outline: 'none',
+                borderColor: '#3b82f6',
+                boxShadow: '0 0 0 2px rgba(59, 130, 246, 0.2)',
+              },
+            });
+          },
+        ],
+      };
+    </script>
+    <script>
+      document.addEventListener('clearForm', function (evt) {
+        document.querySelector('form').reset();
+      });
+    </script>
+  </head>
+  <body
+    class="min-h-screen p-4 md:p-8 bg-gray-900 transition-colors duration-200"
+  >
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-white">User Management System</h2>
+      <%- body %>
+    </div>
+  </body>
+</html>
